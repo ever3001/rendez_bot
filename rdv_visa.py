@@ -18,7 +18,6 @@ condition = True
 
 while condition:
     browser = webdriver.Chrome()
-    browser.minimize_window()
     browser.get('https://www.ppoletrangers.interieur.gouv.fr/?motif=rensej')
 
     nom = browser.find_element_by_id("nom")

@@ -2,8 +2,8 @@
 Avec la situation du corona, c'est presque impossible de pouvoir faire un **rendez-vous au commissariat de Paris** pour le renouvellement du titre de séjour. Donc, j'ai créé un petit script qui remplis les formulaires du page web de la [préfecture de police de paris](https://www.ppoletrangers.interieur.gouv.fr/?motif=rensej) chaque **30 secondes** pour voir s’il y a de la disponibilité dans le site. Si le bot trouve un rendez-vous, il va sonner une alarme. Le script a besoin de Python 3 et Selenium pour travailler.
 
 ## Installer Python
-[Utilisation de Python sur Windows](https://docs.python.org/fr/3/using/windows.html)
-[Utilisation de Python sur Linux](https://docs.python.org/fr/3/using/unix.html#on-linux)
+[Utilisation de Python sur Windows](https://docs.python.org/fr/3/using/windows.html).  
+[Utilisation de Python sur Linux](https://docs.python.org/fr/3/using/unix.html#on-linux).  
 
 ## Installer Selenium
 [Guide complet en anglais](https://selenium-python.readthedocs.io/installation.html)

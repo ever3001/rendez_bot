@@ -3,10 +3,6 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select
 
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-
 ## All data for the form
 data = {
     "nom"           : "Pierre",         # Nom (e.g. Pierre)
@@ -17,7 +13,6 @@ data = {
     "nationalite"   : "MEXICAINE",      # Nationalité (e.g. MEXICAINE)
     "arrdt"         : "12",             # Arrondissement (e.g. 12)
     "time_in_secs"  : 30                # Temps pour reviser la page web en secondes
-    "url_video"     : "https://youtu.be/04854XqcfCY?t=39"   # Lien du video pour alarme
 }
 
 while True:
@@ -63,6 +58,6 @@ while True:
         # Retry in some seconds
         time.sleep(data.get("time_in_secs"))
     else:
-        # Open tab and load the video
-        browser.execute_script("window.open('"+ data.get("url_video") +"', '_blank')")
+        # Open tab and trigger the alarm
+        browser.execute_script("window.open('http://soundbible.com/mp3/analog-watch-alarm_daniel-simion.mp3', '_blank')")
         break

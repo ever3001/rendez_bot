@@ -7,10 +7,12 @@ Avec la situation du corona, c'est presque impossible de pouvoir faire un **rend
 
 ## Installer Selenium
 [Guide complet en anglais](https://selenium-python.readthedocs.io/installation.html)
-### Installer Selenium pour Python
+### Installer Selenium et  pour Python
 ```bash
 # installer selenium
 pip install selenium
+# installer webdrier-manager
+pip install webdriver-manager
 ```
 ### Installer driver pour navigateur web
 

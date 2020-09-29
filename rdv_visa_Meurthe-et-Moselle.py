@@ -23,47 +23,45 @@
 import time # for sleep
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.ui import Select
 
 while True:
     # New instance for Chrome
     browser = webdriver.Chrome(ChromeDriverManager().install())
     # Open the webpage
-    browser.get('http://www.meurthe-et-moselle.gouv.fr/booking/create/22259')
-    # if("503" in browser.page_source or "502" in browser.page_source):
-    #     browser.quit()
-    # Save the window opener (current window, do not mistaken with tab... not the same)
-    main_window = browser.current_window_handle
-    ################################################## Fill all the first form
-    # Accepter les cookies
-    browser.find_element_by_xpath("//a[@onclick='javascript:accepter()']").click()
-    # Click in checkbox "Veuillez cocher la case pour..."
-    browser.find_element_by_xpath("//input[@name='condition']").click()
-    # Click in the submit button
-    browser.find_element_by_xpath("//input[@name='nextButton']").click()
-    ##################################################
-    # if("503" in browser.page_source or "502" in browser.page_source):
-    #     browser.quit()
-    # Click in the radio button "Prendre un rendez-vous pour un renouvellement de titre..."
-    browser.find_element_by_xpath("//input[@id='planning22263']").click()
-    # Click in the submit button
-    browser.find_element_by_xpath("//input[@type='submit']").click()
-    # if("503" in browser.page_source or "502" in browser.page_source):
-    #     browser.quit()
+    try:
+        browser.get('http://www.meurthe-et-moselle.gouv.fr/booking/create/22259')
+        # Save the window opener (current window, do not mistaken with tab... not the same)
+        main_window = browser.current_window_handle
+        # Accepter les cookies
+        browser.find_element_by_xpath("//a[@onclick='javascript:accepter()']").click()
+        ################################################## Fill all the first form
+        # Click in checkbox "Veuillez cocher la case pour..."
+        browser.find_element_by_xpath("//input[@name='condition']").click()
+        # Click in the submit button
+        browser.find_element_by_xpath("//input[@name='nextButton']").click()
+        ##################################################
 
-    # Text to find when there is an error
-    text = "Il n'existe plus de plage horaire libre pour votre demande de rendez-vous."
+        ################################################## Fill all the second form
+        # Click in the radio button "Prendre un rendez-vous pour un renouvellement de titre..."
+        browser.find_element_by_xpath("//input[@id='planning22263']").click()
+        # Click in the submit button
+        browser.find_element_by_xpath("//input[@type='submit']").click()
+        ##################################################
 
-    # If text error exist in webpage
-    if (text in browser.page_source):
-        # Print in console that we didn't have the rd
-        print("Pas de chance pour trouver un rendez-vous ='(")
-        # Close the browser
+        # Text to find when there is an error
+        text = "Il n'existe plus de plage horaire libre pour votre demande de rendez-vous."
+
+        if ((text in browser.page_source) or ("502" in browser.page_source) or ("503" in browser.page_source) or ("504" in browser.page_source)):
+            # Print in console that we didn't have the rd
+            print("Pas de chance pour trouver un rendez-vous ='(")
+            # Close the browser
+            browser.quit()
+            # Retry in some seconds
+            time.sleep(300)
+        else:
+            # Open tab and trigger the alarm
+            browser.execute_script("window.open('http://soundbible.com/mp3/analog-watch-alarm_daniel-simion.mp3', '_blank')")
+            break
+    except:
         browser.quit()
-        # Retry in some seconds
-        time.sleep(5)
-    else:
-        # Open tab and trigger the alarm
-        browser.execute_script("window.open('http://soundbible.com/mp3/analog-watch-alarm_daniel-simion.mp3', '_blank')")
-        break
+        time.sleep(300)

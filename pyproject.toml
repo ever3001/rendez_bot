@@ -1,6 +1,6 @@
 [project]
 name = "rendez_bot"
-version = "0.1.0"
+version = "0.2.0"
 description = "rendez_bot is a python script designed to facilitate booking appointments at French police departments for visa purposes."
 readme = "README.md"
 requires-python = ">=3.9"
@@ -32,7 +32,7 @@ exclude = ["rendez_bot.tests*"]
 "rendez_bot.config" = ["*.ini"]
 
 [tool.bumpver]
-current_version = "0.1.0"
+current_version = "0.2.0"
 version_pattern = "MAJOR.MINOR.PATCH"
 commit_message = "bump version {old_version} -> {new_version}"
 tag_message = "v{new_version}"

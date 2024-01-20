@@ -1,0 +1,19 @@
+{
+    "telegram": {
+        "token": "YOUR_TELEGRAM_TOKEN",
+        "chat_id": "YOUR_CHAT_ID"
+    },
+    "personal_info": {
+        "last_name": "YOUR_LAST_NAME",
+        "first_name": "YOUR_FIRST_NAME",
+        "birthdate": "YOUR_BIRTHDATE",
+        "nationality": "YOUR_NATIONALITY",
+        "address": "YOUR_ADDRESS",
+        "postal_code": "YOUR_POSTAL_CODE",
+        "city": "YOUR_CITY"
+    },
+    "visa_info": {
+        "visa_number": "YOUR_VISA_NUMBER",
+        "validity_date": "YOUR_VALIDITY_DATE"
+    }
+}

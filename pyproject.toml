@@ -1,0 +1,53 @@
+[project]
+name = "rendez_bot"
+version = "0.1.0"
+description = "rendez_bot is a python script designed to facilitate booking appointments at French police departments for visa purposes."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { file = "LICENSE" }
+authors = [{ name = "Ever ATILANO", email = "ever.atilano3001@gmail.com" }]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3"
+]
+dependencies = ["selenium>=4.16.0", "chromedriver_autoinstaller>=0.6.3", "pydantic>=2.5.3", "easyocr>=1.7.1"]
+
+[project.urls]
+"Homepage" = "https://github.com/ever3001/selenium_rdv_visa"
+"Source" = "https://github.com/ever3001/selenium_rdv_visa"
+
+[project.scripts]
+rendez_bot = "rendez_bot.__main__:main"
+
+[build-system]
+requires = ["setuptools>=69.0.3"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+exclude = ["rendez_bot.tests*"]
+
+[tool.setuptools.package-data]
+"rendez_bot.config" = ["*.ini"]
+
+[tool.bumpver]
+current_version = "0.1.0"
+version_pattern = "MAJOR.MINOR.PATCH"
+commit_message = "bump version {old_version} -> {new_version}"
+tag_message = "v{new_version}"
+tag_scope = "default"
+pre_commit_hook = ""
+post_commit_hook = ""
+commit = true
+tag = false
+push = false
+
+[tool.bumpver.file_patterns]
+"pyproject.toml" = ['current_version = "{version}"', 'version = "{version}"']
+"src/rendez_bot/__init__.py" = ["{version}"]
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = ["tests/unit"]
